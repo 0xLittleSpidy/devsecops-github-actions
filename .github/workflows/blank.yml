@@ -1,0 +1,18 @@
+name: "secret_scanner"
+on: push
+
+jobs:
+  secret_scanner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Try to list files
+        run: ls
+    
+      - uses: actions/checkout@v2
+
+      - name: Try to list files
+        run: ls
+      
+      - name: TruffleHog OSS
+        uses: trufflesecurity/trufflehog@v3.95.3
