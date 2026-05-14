@@ -1,5 +1,7 @@
 name: "secret_scanner"
-on: push
+on: 
+  schedule: 
+    cron: 
 
 jobs:
   secret_scanner:
