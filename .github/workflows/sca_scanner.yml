@@ -1,0 +1,22 @@
+name: "sca_scanner"
+on: 
+  schedule: 
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sca_scanner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Try to list files
+        run: ls
+
+      - name: Pull the code
+        uses: actions/checkout@v6.0.2
+
+      - name: Try to list files
+        run: ls
+      
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v5.0.0
