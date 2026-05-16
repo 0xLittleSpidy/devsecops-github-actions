@@ -22,7 +22,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v8.0.0
         with:
           args: >
-            -Dsonar.organization=${{ secrets.SONAR_ORG }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization="0xlittlespidy"
+            -Dsonar.projectKey="0xLittleSpidy_devsecops-github-actions"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
