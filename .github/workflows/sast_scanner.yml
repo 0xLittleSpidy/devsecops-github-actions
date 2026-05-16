@@ -18,7 +18,5 @@ jobs:
       - name: Try to list files
         run: ls
       
-      - name: Snyk
-        uses: snyk/actions@v1.0.0
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Bandit Scan
+        uses: shundor/python-bandit-scan@v1.0
