@@ -18,7 +18,12 @@ jobs:
       - name: Try to list files
         run: ls
       
-      - name: Bandit Scan
-        uses: shundor/python-bandit-scan@v1.0
-        with: 
-          path: "."
+      - name: Run SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORG}}
+            -Dsonar.projectKey=${{secrets.SONAR_PROJECT_KEY}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
