@@ -1,1 +1,24 @@
+name: "sast_scanner"
+on: 
+  schedule: 
+    - cron: '*/55 * * * *'
+  workflow_dispatch:
 
+jobs:
+  sast_scanner:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Try to list files
+        run: ls
+
+      - name: Pull the code
+        uses: actions/checkout@v6.0.2
+
+      - name: Try to list files
+        run: ls
+      
+      - name: Snyk
+        uses: snyk/actions@v1.0.0
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
