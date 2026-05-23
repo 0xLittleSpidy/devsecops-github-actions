@@ -2,6 +2,11 @@ name: "sast_devskim_scan"
 on:
   workflow_dispatch: 
 
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
 jobs:
   devskim:
     runs-on: ubuntu-latest
