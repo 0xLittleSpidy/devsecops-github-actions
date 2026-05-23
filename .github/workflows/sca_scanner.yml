@@ -17,6 +17,20 @@ jobs:
 
       - name: Try to list files
         run: ls
+
+      - name: Build project with Maven
+        run: mvn clean install
       
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v5.0.0
+      - name: Dependency Check
+        uses: dependency-check/Dependency-Check_Action@1.1.0
+        with:
+          project: 'test'
+          path: '.'
+          format: 'HTML'
+          out: 'reports' # this is the default, no need to specify unless you wish to override it
+
+      - name: Upload Test results
+        uses: actions/upload-artifact@v7.0.1
+        with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
