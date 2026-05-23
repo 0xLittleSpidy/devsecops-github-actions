@@ -6,8 +6,14 @@ jobs:
   sbom:
     runs-on: ubuntu-latest
     steps:
+      - name: Try to list files
+        run: ls
+
       - name: Pull the code
         uses: actions/checkout@v6.0.2
+
+      - name: Try to list files
+        run: ls
 
       - name: Install cyclonedx-bom tool
         run: pipx install cyclonedx-bom
