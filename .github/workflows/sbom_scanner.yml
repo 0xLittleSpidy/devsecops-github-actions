@@ -1,0 +1,16 @@
+name: sbom-scan
+on: 
+  workflow_dispatch:
+
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull the code
+        uses: actions/checkout@v6.0.2
+
+      - name: Install cyclonedx-bom tool
+        run: pipx install cyclonedx-bom
+      
+      - name: run cyclonedx-py
+        run: cyclonedx-py requirements
