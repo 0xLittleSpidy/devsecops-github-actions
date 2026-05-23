@@ -1,7 +1,5 @@
 name: "sca_scanner"
 on: 
-  schedule: 
-    - cron: '*/55 * * * *'
   workflow_dispatch:
 
 jobs:
