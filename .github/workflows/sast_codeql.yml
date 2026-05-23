@@ -1,4 +1,4 @@
-name: SAST
+name: sast_codeql
 on:  
   workflow_dispatch:
 jobs:
