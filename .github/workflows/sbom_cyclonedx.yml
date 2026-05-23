@@ -6,8 +6,6 @@ jobs:
   sbom:
     runs-on: ubuntu-latest
     steps:
-      - name: Try to list files
-        run: ls
 
       - name: Pull the code
         uses: actions/checkout@v6.0.2
