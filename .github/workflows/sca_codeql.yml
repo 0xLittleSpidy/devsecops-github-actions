@@ -1,0 +1,14 @@
+name: SAST
+on:  
+  workflow_dispatch:
+jobs:
+  sast_codeql:
+   name: CodeQL
+   runs-on: ubuntu-latest
+   steps:
+     - name: Pull the code
+       uses: actions/checkout@v6.0.2
+     - name: Initialize CodeQL
+       uses: github/codeql-action/init@v1
+     - name: Perform CodeQL Analysis
+       uses: github/codeql-action/analyze@v1
