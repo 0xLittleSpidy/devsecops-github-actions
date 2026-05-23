@@ -1,0 +1,32 @@
+name: "sast_devskim_scan"
+on:
+  workflow_dispatch: 
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  devskim:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Try to list files
+        run: ls
+
+      - name: Pull the code
+        uses: actions/checkout@v6.0.2
+
+      - name: Try to list files
+        run: ls
+      
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          command: test
+        
+      - uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: snyk.sarif
