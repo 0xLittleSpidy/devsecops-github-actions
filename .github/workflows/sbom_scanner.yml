@@ -18,5 +18,11 @@ jobs:
       - name: Install cyclonedx-bom tool
         run: pipx install cyclonedx-bom
       
-      - name: run cyclonedx-py
-        run: cyclonedx-py requirements
+      - name: run cyclonedx-py 
+        run: cyclonedx-py requirements -o sbom.xml --of XML
+
+      - name: "upload sbom result"
+        uses: actions/upload-artifact@v7.0.1
+        with:
+           name: sbom.xml
+           path: ${{github.workspace}}/reports
