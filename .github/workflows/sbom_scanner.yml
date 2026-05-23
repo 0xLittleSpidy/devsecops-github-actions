@@ -21,6 +21,9 @@ jobs:
       - name: run cyclonedx-py 
         run: cyclonedx-py requirements -o sbom.xml --of XML
 
+      - name: Try to list files
+        run: ls
+
       - name: "upload sbom result"
         uses: actions/upload-artifact@v7.0.1
         with:
