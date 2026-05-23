@@ -1,7 +1,5 @@
 name: "sast_scanner"
 on: 
-  schedule: 
-    - cron: '*/55 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -9,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Try to list files
-        run: ls
 
       - name: Pull the code
         uses: actions/checkout@v6.0.2
